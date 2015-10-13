@@ -151,12 +151,19 @@ bool hasSpaceBar = false;
 - (void) mapToCharset :(UniChar *)w :(int)count
 {
     UniChar *s;
+    char adjust = 0;
     for( s = _kbBuffer+BACKSPACE_BUFFER, pw = w; count>0; count--, w++ ) {
+        if (*(w-1)==utf_u && (*w==utf_o7 ||*w==utf_o71 ||*w==utf_o72 ||*w==utf_o73 ||*w==utf_o74 ||*w==utf_o75 )){
+            adjust = 1;
+            *s++ = '\b';
+            *s++ = utf_u7;
+            count++;
+        }
         *s++ = *w;
     }
     *s = 0;
     
-    self.kbBLength = s - _kbBuffer - BACKSPACE_BUFFER;
+    self.kbBLength = s - _kbBuffer - BACKSPACE_BUFFER - adjust;
 }
 
 - (int) uiGroup: (ushort) u
@@ -258,12 +265,12 @@ bool hasSpaceBar = false;
     int kp = sp ? (sp - spchk) : -1;
     
     if( !count ) {
-        if( kp>=0 && kp<12 ) {
+        if( kp>=0 && kp<12 ) { // AIUEOYaiueoy
             vpc = 1;
             vps[vp = 0] = -1;
             lvs[0] = key;
         } else {
-            if( kp==12 || kp>37 ) {
+            if( kp==12 || kp>37 ) { // |'`~?.^*+=
                 return;
             } else {
                 vp = -1;
