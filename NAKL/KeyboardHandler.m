@@ -153,11 +153,21 @@ bool hasSpaceBar = false;
     UniChar *s;
     char adjust = 0;
     for( s = _kbBuffer+BACKSPACE_BUFFER, pw = w; count>0; count--, w++ ) {
-        if (*(w-1)==utf_u && (*w==utf_o7 ||*w==utf_o71 ||*w==utf_o72 ||*w==utf_o73 ||*w==utf_o74 ||*w==utf_o75 )){
-            adjust = 1;
-            *s++ = '\b';
-            *s++ = utf_u7;
-            count++;
+        switch (w-word){
+            case 2:
+                if (*(w-2)=='q')
+                    break;
+            case 3:
+                if (*(w-3)=='t' && *(w-2)=='h')
+                    break;
+            default:
+                if (w>word && *(w-1)==utf_u && (*w==utf_o7 ||*w==utf_o71 ||*w==utf_o72 ||*w==utf_o73 ||*w==utf_o74 ||*w==utf_o75 )){
+                    adjust = 1;
+                    *s++ = '\b';
+                    *s++ = utf_u7;
+                    count++;
+                }
+                break;
         }
         *s++ = *w;
     }
