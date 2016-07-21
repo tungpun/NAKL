@@ -30,8 +30,9 @@ uint64_t controlKeys = kCGEventFlagMaskCommand | kCGEventFlagMaskAlternate | kCG
 
 static char *separators[] = {
     "",                                     // VKM_OFF
-    "!@#$%&)|\\-{}[]:\";<>,/'`~?.^*(+=",    // VKM_VNI
+    "!@#$%&)|\\-{}[]:\";<>/`~?^*(+=",       // VKM_VNID
     "!@#$%&)|\\-:\";<>,/'`~?.^*(+="         // VKM_TELEX
+    "!@#$%&)|\\-{}[]:\";<>,/'`~?.^*(+=",    // VKM_VNI
 };
 
 KeyboardHandler *kbHandler;

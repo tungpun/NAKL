@@ -52,6 +52,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		028FCEE71D40B923002A118C /* vni-standard.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "vni-standard.h"; sourceTree = "<group>"; };
 		5115192E157FA071003D3BB4 /* NSFileManager+DirectoryLocations.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSFileManager+DirectoryLocations.h"; sourceTree = "<group>"; };
 		5115192F157FA071003D3BB4 /* NSFileManager+DirectoryLocations.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSFileManager+DirectoryLocations.m"; sourceTree = "<group>"; };
 		512C87BD181AE049008E8A65 /* EnableAssistiveDevices.scpt */ = {isa = PBXFileReference; lastKnownFileType = file; name = EnableAssistiveDevices.scpt; path = scripts/EnableAssistiveDevices.scpt; sourceTree = "<group>"; };
@@ -246,6 +247,7 @@
 				51F8A4DB1577D41900D42909 /* ShortcutSetting.m */,
 				5189A8DC1570C31100327B99 /* telex-standard.h */,
 				5158BDE51568A6EB00EEBAD6 /* utf.h */,
+				028FCEE71D40B923002A118C /* vni-standard.h */,
 				5147E45815791D5A00932040 /* ShortcutTableViewController.h */,
 				5147E45915791D5A00932040 /* ShortcutTableViewController.m */,
 			);

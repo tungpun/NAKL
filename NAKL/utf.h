@@ -400,20 +400,129 @@ modifier_t telex[] =
 /*----------------------------------------------------------------------------*/
 #include "vni-standard.h"
 /*----------------------------------------------------------------------------*/
-modifier_t vni[] =
+vietcode_t code_87[] =
 {
-	{1, '6', code_6},
-	{1, '7', code_7},
-	{1, '8', code_8},
-	{1, '9', code_9},
-	{1, '_', code_sign},
-	{2, '1', code_1},
-	{2, '2', code_2},
-	{2, '3', code_3},
-	{2, '4', code_4},
-	{2, '5', code_5},
-	{2, '0', code_z},
-	{0, 0, 0}
+    
+    { utf_O,	utf_O7 },				//	O => O+
+    { utf_O1,	utf_O71 },				//	O' => O+'
+    { utf_O2,	utf_O72 },				//	O` => O+`
+    { utf_O3,	utf_O73 },				//	O? => O+?
+    { utf_O4,	utf_O74 },				//	O~ => O+~
+    { utf_O5,	utf_O75 },				//	O. => O+.
+    { utf_O6,	utf_O7 },				//	O^ => O+
+    { utf_O61,	utf_O71 },				//	O^' => O+'
+    { utf_O62,	utf_O72 },				//	O^` => O+`
+    { utf_O63,	utf_O73 },				//	O^? => O+?
+    { utf_O64,	utf_O74 },				//	O^~ => O+~
+    { utf_O65,	utf_O75 },				//	O^. => O+.
+    { utf_O7,	utf_O, '8' },			//	O+ => O7
+    { utf_O71,	utf_O1, '8' },			//	O+' => O'7
+    { utf_O72,	utf_O2, '8' },			//	O+` => O`7
+    { utf_O73,	utf_O3, '8' },			//	O+? => O?7
+    { utf_O74,	utf_O4, '8' },			//	O+~ => O~7
+    { utf_O75,	utf_O5, '8' },			//	O+. => O.7
+    
+    { utf_o,	utf_o7 },				//	o => o+
+    { utf_o1,	utf_o71 },				//	o' => o+'
+    { utf_o2,	utf_o72 },				//	o` => o+`
+    { utf_o3,	utf_o73 },				//	o? => o+?
+    { utf_o4,	utf_o74 },				//	o~ => o+~
+    { utf_o5,	utf_o75 },				//	o. => o+.
+    { utf_o6,	utf_o7 },				//	o^ => o+
+    { utf_o61,	utf_o71 },				//	o^' => o+'
+    { utf_o62,	utf_o72 },				//	o^` => o+`
+    { utf_o63,	utf_o73 },				//	o^? => o+?
+    { utf_o64,	utf_o74 },				//	o^~ => o+~
+    { utf_o65,	utf_o75 },				//	o^. => o+.
+    { utf_o7,	utf_o, '8' },			//	o+ => o7
+    { utf_o71,	utf_o1, '8' },			//	o+' => o'7
+    { utf_o72,	utf_o2, '8' },			//	o+` => o`7
+    { utf_o73,	utf_o3, '8' },			//	o+? => o?7
+    { utf_o74,	utf_o4, '8' },			//	o+~ => o~7
+    { utf_o75,	utf_o5, '8' },			//	o+. => o.7
+    
+    { utf_U,	utf_U7 },				//	U => U+
+    { utf_U1,	utf_U71 },				//	U' => U+'
+    { utf_U2,	utf_U72 },				//	U` => U+`
+    { utf_U3,	utf_U73 },				//	U? => U+?
+    { utf_U4,	utf_U74 },				//	U~ => U+~
+    { utf_U5,	utf_U75 },				//	U. => U+.
+    { utf_U7,	utf_U, '8' },			//	U+ => U7
+    { utf_U71,	utf_U1, '8' },			//	U+' => U'7
+    { utf_U72,	utf_U2, '8' },			//	U+` => U`7
+    { utf_U73,	utf_U3, '8' },			//	U+? => U?7
+    { utf_U74,	utf_U4, '8' },			//	U+~ => U~7
+    { utf_U75,	utf_U5, '8' },			//	U+. => U.7
+    
+    { utf_u,	utf_u7 },				//	u => u+
+    { utf_u1,	utf_u71 },				//	u' => u+'
+    { utf_u2,	utf_u72 },				//	u` => u+`
+    { utf_u3,	utf_u73 },				//	u? => u+?
+    { utf_u4,	utf_u74 },				//	u~ => u+~
+    { utf_u5,	utf_u75 },				//	u. => u+.
+    { utf_u7,	utf_u, '8' },			//	u+ => u7
+    { utf_u71,	utf_u1, '8' },			//	u+' => u'7
+    { utf_u72,	utf_u2, '8' },			//	u+` => u`7
+    { utf_u73,	utf_u3, '8' },			//	u+? => u?7
+    { utf_u74,	utf_u4, '8' },			//	u+~ => u~7
+    { utf_u75,	utf_u5, '8' },			//	u+. => u.7
+    
+    
+    { utf_A,	utf_A8 },				//	A => A(
+    { utf_A1,	utf_A81 },				//	A' => A('
+    { utf_A2,	utf_A82 },				//	A` => A(`
+    { utf_A3,	utf_A83 },				//	A? => A(?
+    { utf_A4,	utf_A84 },				//	A~ => A(~
+    { utf_A5,	utf_A85 },				//	A. => A(.
+    { utf_A6,	utf_A8 },				//	A^ => A(
+    { utf_A61,	utf_A81 },				//	A^' => A('
+    { utf_A62,	utf_A82 },				//	A^` => A(`
+    { utf_A63,	utf_A83 },				//	A^? => A(?
+    { utf_A64,	utf_A84 },				//	A^~ => A(~
+    { utf_A65,	utf_A85 },				//	A^. => A(.
+    { utf_A8,	utf_A, '8' },			//	A( => A8
+    { utf_A81,	utf_A1, '8' },			//	A(' => A'8
+    { utf_A82,	utf_A2, '8' },			//	A(` => A`8
+    { utf_A83,	utf_A3, '8' },			//	A(? => A?8
+    { utf_A84,	utf_A4, '8' },			//	A(~ => A~8
+    { utf_A85,	utf_A5, '8' },			//	A(. => A.8
+    
+    { utf_a,	utf_a8 },				//	a => a(
+    { utf_a1,	utf_a81 },				//	a' => a('
+    { utf_a2,	utf_a82 },				//	a` => a(`
+    { utf_a3,	utf_a83 },				//	a? => a(?
+    { utf_a4,	utf_a84 },				//	a~ => a(~
+    { utf_a5,	utf_a85 },				//	a. => a(.
+    { utf_a6,	utf_a8 },				//	a^ => a(
+    { utf_a61,	utf_a81 },				//	a^' => a('
+    { utf_a62,	utf_a82 },				//	a^` => a(`
+    { utf_a63,	utf_a83 },				//	a^? => a(?
+    { utf_a64,	utf_a84 },				//	a^~ => a(~
+    { utf_a65,	utf_a85 },				//	a^. => a(.
+    { utf_a8,	utf_a, '8' },			//	a( => a8
+    { utf_a81,	utf_a1, '8' },			//	a(' => a'8
+    { utf_a82,	utf_a2, '8' },			//	a(` => a`8
+    { utf_a83,	utf_a3, '8' },			//	a(? => a?8
+    { utf_a84,	utf_a4, '8' },			//	a(~ => a~8
+    { utf_a85,	utf_a5, '8' },			//	a(. => a.8
+    
+    { 0 }
+};
+
+modifier_t vnid[] =
+{
+    {1, ',', code_6},
+    {1, '\'', code_7},
+    {1, '8', code_8},
+    {1, '9', code_9},
+    {1, '_', code_sign},
+    {2, '1', code_1},
+    {2, '2', code_2},
+    {2, '3', code_3},
+    {2, '4', code_4},
+    {2, '.', code_5},
+    {2, '0', code_z},
+    {0, 0, 0}
 };
 /*----------------------------------------------------------------------------*/
 modifier_t viqr[] =
@@ -434,7 +543,23 @@ modifier_t viqr[] =
 	{0, 0, 0}
 };
 /*----------------------------------------------------------------------------*/
-modifier_t *modes[] = { vni, telex, viqr };
+modifier_t vni[] =
+{
+    {1, '6', code_6},
+    {1, '7', code_7},
+    {1, '8', code_8},
+    {1, '9', code_9},
+    {1, '_', code_sign},
+    {2, '1', code_1},
+    {2, '2', code_2},
+    {2, '3', code_3},
+    {2, '4', code_4},
+    {2, '5', code_5},
+    {2, '0', code_z},
+    {0, 0, 0}
+};
+/*----------------------------------------------------------------------------*/
+modifier_t *modes[] = { vnid, telex, vni, viqr };
 /*----------------------------------------------------------------------------*/
 ushort UTF16[] = {
 	utf_A,  utf_A1,  utf_A2,  utf_A3,  utf_A4,  utf_A5,
@@ -499,23 +624,28 @@ char *UTF8[] = {
 };
 
 char modifiedChars[] = "aeiouyd";
-char vniModifierKeys[] =  "123456789";
+char vnidModifierKeys[] =  "1234.,'89";
 char telexModifierKeys[] = "sfrxjaeowd";
+char vniModifierKeys[] =  "123456789";
 
-ushort vniModifiersMap[] = {
-    191, 63, 31, 127, 95,  31, 256
+ushort vnidModifiersMap[] = {
+    191, 63, 31, 127, 95, 31, 256
 };
 
 ushort telexModifiersMap[] = {
     319, 95, 31, 415, 287, 31, 512
 };
 
+ushort vniModifiersMap[] = {
+    191, 63, 31, 127, 95,  31, 256
+};
+
 char* modifierKeys[] = {
-    vniModifierKeys, telexModifierKeys
+    vnidModifierKeys, telexModifierKeys
 };
 
 ushort *modifiersMap[] = {
-    vniModifiersMap, telexModifiersMap
+    vnidModifiersMap, telexModifiersMap
 };
 
 #endif
