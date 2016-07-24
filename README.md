@@ -16,3 +16,4 @@ TODO:
 - [ ] Sửa lỗi thỉnh thoảng bị hiện oô, eê...
 - [x] Thêm kiểu gõ VNID
 - [x] Bỏ dấu sau từ ('Xoá' và 'Xóa')
+- [ ] Lỗi không gõ dấu được sau khi nhấn backspace: tho6ng[backspace]1 -> thốn

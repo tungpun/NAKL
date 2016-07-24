@@ -178,7 +178,7 @@ bool hasSpaceBar = false;
                     count++;
                 }
 
-                // TODO: Send to the future me who are very good at C++:
+                // TODO: Send to the future me who is very good at C++:
                 // Please use arrays and maps to simplify the code hell below, thank you!
                 // oá -> óa, oà -> òa...
                 ////////////////////////////////
