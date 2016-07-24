@@ -13,7 +13,7 @@ This fork has weird features and is under development:
 
 TODO:
 - [x] Sửa lỗi uo7 thì hiện chữ ươ thay vì uơ.
-- [ ] Sửa lỗi thỉnh thoảng bị hiện oô, eê...
+- [ ] Sửa lỗi bị hiện oô, eê... khi gõ quá nhanh.
 - [x] Thêm kiểu gõ VNID
 - [x] Bỏ dấu sau từ ('Xoá' và 'Xóa')
 - [ ] Lỗi không gõ dấu được sau khi nhấn backspace: tho6ng[backspace]1 -> thốn
