@@ -5,7 +5,7 @@ NAKL - Yet another Vietnamese input keyboard for Mac OS
 Warning!
 -------
 
-This fork has weird feature and is under development:
+This fork has weird features and is under development:
 - Try to fix several bugs as author has stopped the development on the original repo.
 - The weird part: trying to add a new input method VNID
 
