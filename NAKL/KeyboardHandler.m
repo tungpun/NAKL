@@ -157,9 +157,9 @@ bool hasSpaceBar = false;
             case 2:
                 if (*(w-2)=='q')
                     break;
-            case 3:
-                if (*(w-3)=='t' && *(w-2)=='h')
-                    break;
+//            case 3:
+//                if (*(w-3)=='t' && *(w-2)=='h')
+//                    break;
             default:
                 if (w>word && *(w-1)==utf_u && (*w==utf_o7 ||*w==utf_o71 ||*w==utf_o72 ||*w==utf_o73 ||*w==utf_o74 ||*w==utf_o75 )){
                     adjust = 1;
