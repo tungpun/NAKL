@@ -511,8 +511,8 @@ vietcode_t code_87[] =
 
 modifier_t vnid[] =
 {
-    {1, ',', code_6},
-    {1, '/', code_7},
+    {1, '0', code_6},
+    {1, '[', code_7},
     {1, '8', code_8},
     {1, '9', code_9},
     {1, '_', code_sign},
@@ -520,8 +520,8 @@ modifier_t vnid[] =
     {2, '2', code_2},
     {2, '3', code_3},
     {2, '4', code_4},
-    {2, '.', code_5},
-    {2, '0', code_z},
+    {2, '5', code_5},
+    {2, ']', code_z},
     {0, 0, 0}
 };
 /*----------------------------------------------------------------------------*/
@@ -624,7 +624,7 @@ char *UTF8[] = {
 };
 
 char modifiedChars[] = "aeiouyd";
-char vnidModifierKeys[] =  "1234.,/89";
+char vnidModifierKeys[] =  "123450[89";
 char telexModifierKeys[] = "sfrxjaeowd";
 char vniModifierKeys[] =  "123456789";
 
