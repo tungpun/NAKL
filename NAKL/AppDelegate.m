@@ -31,7 +31,7 @@ uint64_t controlKeys = kCGEventFlagMaskCommand | kCGEventFlagMaskAlternate | kCG
 static char *separators[] = {
     "",                                     // VKM_OFF
     "!@#$%&)|\\-{}[]:\";<>'`~?^*(+=",       // VKM_VNID
-    "!@#$%&)|\\-:\";<>,/'`~?.^*(+="         // VKM_TELEX
+    "!@#$%&)|\\-:\";<>,/'`~?.^*(+=",        // VKM_TELEX
     "!@#$%&)|\\-{}[]:\";<>,/'`~?.^*(+=",    // VKM_VNI
 };
 
@@ -352,7 +352,7 @@ CGEventRef KeyHandler(CGEventTapProxy proxy, CGEventType type, CGEventRef event,
     }
     else if ([[(NSMenuItem*) sender title] compare:@"VNI"] == 0)
     {
-        method = VKM_TELEX;
+        method = VKM_VNI;
     }
     else
     {
