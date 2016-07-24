@@ -26,6 +26,10 @@
 
 #define chr_A   'A'
 #define chr_a   'a'
+#define chr_E   'E'
+#define chr_e   'e'
+#define chr_Y   'Y'
+#define chr_y   'y'
 #define chr_D   'D'
 #define chr_d   'd'
 #define chr_U   'U'
@@ -177,135 +181,6 @@ bool hasSpaceBar = false;
                     *s++ = utf_U7;
                     count++;
                 }
-
-                // TODO: Send to the future me who is very good at C++:
-                // Please use arrays and maps to simplify the code hell below, thank you!
-                // oá -> óa, oà -> òa...
-                ////////////////////////////////
-                if (w>word && *(w-1)==utf_o && *w==utf_a1 ){
-                    adjust = 1;
-                    *s++ = '\b';
-                    *s++ = utf_o1;
-                    *s++ = utf_a;
-                }
-                if (w>word && *(w-1)==utf_o && *w==utf_a2 ){
-                    adjust = 1;
-                    *s++ = '\b';
-                    *s++ = utf_o2;
-                    *s++ = utf_a;
-                }
-                if (w>word && *(w-1)==utf_o && *w==utf_a3 ){
-                    adjust = 1;
-                    *s++ = '\b';
-                    *s++ = utf_o3;
-                    *s++ = utf_a;
-                }
-                if (w>word && *(w-1)==utf_o && *w==utf_a4 ){
-                    adjust = 1;
-                    *s++ = '\b';
-                    *s++ = utf_o4;
-                    *s++ = utf_a;
-                }
-                if (w>word && *(w-1)==utf_o && *w==utf_a5 ){
-                    adjust = 1;
-                    *s++ = '\b';
-                    *s++ = utf_o5;
-                    *s++ = utf_a;
-                }
-                // Capital
-                if (w>word && *(w-1)==utf_O && *w==utf_A1 ){
-                    adjust = 1;
-                    *s++ = '\b';
-                    *s++ = utf_O1;
-                    *s++ = utf_A;
-                }
-                if (w>word && *(w-1)==utf_O && *w==utf_A2 ){
-                    adjust = 1;
-                    *s++ = '\b';
-                    *s++ = utf_O2;
-                    *s++ = utf_A;
-                }
-                if (w>word && *(w-1)==utf_O && *w==utf_A3 ){
-                    adjust = 1;
-                    *s++ = '\b';
-                    *s++ = utf_O3;
-                    *s++ = utf_A;
-                }
-                if (w>word && *(w-1)==utf_O && *w==utf_A4 ){
-                    adjust = 1;
-                    *s++ = '\b';
-                    *s++ = utf_O4;
-                    *s++ = utf_A;
-                }
-                if (w>word && *(w-1)==utf_O && *w==utf_A5 ){
-                    adjust = 1;
-                    *s++ = '\b';
-                    *s++ = utf_O5;
-                    *s++ = utf_A;
-                }
-                // uý -> úy, uỳ -> ùy...
-                ////////////////////////////////
-                if (w>word && *(w-1)==utf_u && *w==utf_y1 ){
-                    adjust = 1;
-                    *s++ = '\b';
-                    *s++ = utf_u1;
-                    *s++ = utf_y;
-                }
-                if (w>word && *(w-1)==utf_u && *w==utf_y2 ){
-                    adjust = 1;
-                    *s++ = '\b';
-                    *s++ = utf_u2;
-                    *s++ = utf_y;
-                }
-                if (w>word && *(w-1)==utf_u && *w==utf_y3 ){
-                    adjust = 1;
-                    *s++ = '\b';
-                    *s++ = utf_u3;
-                    *s++ = utf_y;
-                }
-                if (w>word && *(w-1)==utf_u && *w==utf_y4 ){
-                    adjust = 1;
-                    *s++ = '\b';
-                    *s++ = utf_u4;
-                    *s++ = utf_y;
-                }
-                if (w>word && *(w-1)==utf_u && *w==utf_y5 ){
-                    adjust = 1;
-                    *s++ = '\b';
-                    *s++ = utf_u5;
-                    *s++ = utf_y;
-                }
-                // Capital
-                if (w>word && *(w-1)==utf_U && *w==utf_Y1 ){
-                    adjust = 1;
-                    *s++ = '\b';
-                    *s++ = utf_U1;
-                    *s++ = utf_Y;
-                }
-                if (w>word && *(w-1)==utf_U && *w==utf_Y2 ){
-                    adjust = 1;
-                    *s++ = '\b';
-                    *s++ = utf_U2;
-                    *s++ = utf_Y;
-                }
-                if (w>word && *(w-1)==utf_U && *w==utf_Y3 ){
-                    adjust = 1;
-                    *s++ = '\b';
-                    *s++ = utf_U3;
-                    *s++ = utf_Y;
-                }
-                if (w>word && *(w-1)==utf_U && *w==utf_Y4 ){
-                    adjust = 1;
-                    *s++ = '\b';
-                    *s++ = utf_U4;
-                    *s++ = utf_Y;
-                }
-                if (w>word && *(w-1)==utf_U && *w==utf_Y5 ){
-                    adjust = 1;
-                    *s++ = '\b';
-                    *s++ = utf_U5;
-                    *s++ = utf_Y;
-                }
                 break;
         }
         *s++ = *w;
@@ -318,6 +193,8 @@ bool hasSpaceBar = false;
 - (int) uiGroup: (ushort) u
 {
     static ushort UI[] = {
+        utf_O,  utf_O1,  utf_O2,  utf_O3,  utf_O4,  utf_O5,
+        utf_o,  utf_o1,  utf_o2,  utf_o3,  utf_o4,  utf_o5,
         utf_U,  utf_U1,  utf_U2,  utf_U3,  utf_U4,  utf_U5,
         utf_u,  utf_u1,  utf_u2,  utf_u3,  utf_u4,  utf_u5,
         utf_U7, utf_U71, utf_U72, utf_U73, utf_U74, utf_U75,
@@ -409,6 +286,8 @@ bool hasSpaceBar = false;
 - (void) append :(ushort)lastkey :(UniChar)key
 {
     static char *spchk = "AIUEOYaiueoy|BDFJKLQSVWXZbdfjklqsvwxz|'`~?.^*+=";
+                        // -                                -  -     -                 -
+                        // ià ùa òa ái ùi ói àu íu éu iê uê oè yê ào uố èo ấy úy ưu    ió
     static char *vwchk = "|ia|ua|oa|ai|ui|oi|au|iu|eu|ie|ue|oe|ye|ao|uo|eo|ay|uy|uu|ou|io|";
     char *sp = strchr(spchk, (char) key);
     int kp = sp ? (sp - spchk) : -1;
@@ -428,12 +307,12 @@ bool hasSpaceBar = false;
         }
     }
     else {
-        if( kp==12 || kp>37 ) {
+        if( kp==12 || kp>37 ) { // |'`~?.^*+=
             [self clearBuffer];
             return;
         }
         else
-            if( kp>12 ) // b, d, f,...
+            if( kp>12 ) // BDFJKLQSVWXZbdfjklqsvwxz
                 tempoff = count;
             else
                 if( kp>=0 ) { // vowels
@@ -616,6 +495,15 @@ bool hasSpaceBar = false;
                 if( i-2 < 0 ||  (word[i-2] != chr_g && word[i-2] != chr_G) )
                     i = i - 1;
                 break;
+            case chr_e:
+            case chr_E:
+                i = i - 1;
+                break;
+            case chr_y:
+            case chr_Y:
+                i = i - 1;
+                break;
+            
         }
     }
     
