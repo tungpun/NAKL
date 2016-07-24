@@ -28,7 +28,7 @@
 #define NAKL_MAGIC_NUMBER 536870912L // 1<<29
 
 typedef enum {
-    VKM_OFF, VKM_VNI, VKM_TELEX
+    VKM_OFF, VKM_VNID, VKM_TELEX, VKM_VNI
 } NAKL_METHOD;
 
 @interface AppDelegate : NSObject <NSApplicationDelegate> {

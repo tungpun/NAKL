@@ -173,10 +173,12 @@ CGEventRef KeyHandler(CGEventTapProxy proxy, CGEventType type, CGEventRef event,
                 }
                 
                 if (((flag & controlKeys) == [AppData sharedAppData].switchMethodCombo.flags) && (keycode == [AppData sharedAppData].switchMethodCombo.code) ){
-                    if (kbHandler.kbMethod == VKM_VNI) {
+                    if (kbHandler.kbMethod == VKM_VNID) {
                         kbHandler.kbMethod = VKM_TELEX;
                     } else if (kbHandler.kbMethod == VKM_TELEX) {
                         kbHandler.kbMethod = VKM_VNI;
+                    } else if (kbHandler.kbMethod == VKM_VNI) {
+                        kbHandler.kbMethod = VKM_VNID;
                     }
                     
                     if (kbHandler.kbMethod != VKM_OFF) {
@@ -310,8 +312,9 @@ CGEventRef KeyHandler(CGEventTapProxy proxy, CGEventType type, CGEventRef event,
 - (void) updateStatusItem {
     int method = kbHandler.kbMethod;
     switch (method) {
-        case VKM_VNI:
+        case VKM_VNID:
         case VKM_TELEX:
+        case VKM_VNI:
             [statusItem setImage:viStatusImage];
             break;
             
@@ -339,11 +342,15 @@ CGEventRef KeyHandler(CGEventTapProxy proxy, CGEventType type, CGEventRef event,
     
     int method;
     
-    if ([[(NSMenuItem*) sender title] compare:@"VNI"] == 0)
+    if ([[(NSMenuItem*) sender title] compare:@"VNID"] == 0)
     {
-        method = VKM_VNI;
+        method = VKM_VNID;
     }
     else if ([[(NSMenuItem*) sender title] compare:@"Telex"] == 0)
+    {
+        method = VKM_TELEX;
+    }
+    else if ([[(NSMenuItem*) sender title] compare:@"VNI"] == 0)
     {
         method = VKM_TELEX;
     }

@@ -641,11 +641,11 @@ ushort vniModifiersMap[] = {
 };
 
 char* modifierKeys[] = {
-    vnidModifierKeys, telexModifierKeys
+    vnidModifierKeys, telexModifierKeys, vniModifierKeys
 };
 
 ushort *modifiersMap[] = {
-    vnidModifiersMap, telexModifiersMap
+    vnidModifiersMap, telexModifiersMap, vniModifiersMap
 };
 
 #endif
