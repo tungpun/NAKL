@@ -157,15 +157,154 @@ bool hasSpaceBar = false;
             case 2:
                 if (*(w-2)=='q')
                     break;
+              // thuo7 -> thuơ
 //            case 3:
 //                if (*(w-3)=='t' && *(w-2)=='h')
 //                    break;
             default:
+                // uơ -> ươ, uớ -> ướ, uờ -> ườ...
+                ////////////////////////////////
                 if (w>word && *(w-1)==utf_u && (*w==utf_o7 ||*w==utf_o71 ||*w==utf_o72 ||*w==utf_o73 ||*w==utf_o74 ||*w==utf_o75 )){
                     adjust = 1;
                     *s++ = '\b';
                     *s++ = utf_u7;
                     count++;
+                }
+                // capital key
+                if (w>word && *(w-1)==utf_U && (*w==utf_O7 ||*w==utf_O71 ||*w==utf_O72 ||*w==utf_O73 ||*w==utf_O74 ||*w==utf_O75 )){
+                    adjust = 1;
+                    *s++ = '\b';
+                    *s++ = utf_U7;
+                    count++;
+                }
+
+                // TODO: Send to the future me who are very good at C++:
+                // Please use arrays and maps to simplify the code hell below, thank you!
+                // oá -> óa, oà -> òa...
+                ////////////////////////////////
+                if (w>word && *(w-1)==utf_o && *w==utf_a1 ){
+                    adjust = 1;
+                    *s++ = '\b';
+                    *s++ = utf_o1;
+                    *s++ = utf_a;
+                }
+                if (w>word && *(w-1)==utf_o && *w==utf_a2 ){
+                    adjust = 1;
+                    *s++ = '\b';
+                    *s++ = utf_o2;
+                    *s++ = utf_a;
+                }
+                if (w>word && *(w-1)==utf_o && *w==utf_a3 ){
+                    adjust = 1;
+                    *s++ = '\b';
+                    *s++ = utf_o3;
+                    *s++ = utf_a;
+                }
+                if (w>word && *(w-1)==utf_o && *w==utf_a4 ){
+                    adjust = 1;
+                    *s++ = '\b';
+                    *s++ = utf_o4;
+                    *s++ = utf_a;
+                }
+                if (w>word && *(w-1)==utf_o && *w==utf_a5 ){
+                    adjust = 1;
+                    *s++ = '\b';
+                    *s++ = utf_o5;
+                    *s++ = utf_a;
+                }
+                // Capital
+                if (w>word && *(w-1)==utf_O && *w==utf_A1 ){
+                    adjust = 1;
+                    *s++ = '\b';
+                    *s++ = utf_O1;
+                    *s++ = utf_A;
+                }
+                if (w>word && *(w-1)==utf_O && *w==utf_A2 ){
+                    adjust = 1;
+                    *s++ = '\b';
+                    *s++ = utf_O2;
+                    *s++ = utf_A;
+                }
+                if (w>word && *(w-1)==utf_O && *w==utf_A3 ){
+                    adjust = 1;
+                    *s++ = '\b';
+                    *s++ = utf_O3;
+                    *s++ = utf_A;
+                }
+                if (w>word && *(w-1)==utf_O && *w==utf_A4 ){
+                    adjust = 1;
+                    *s++ = '\b';
+                    *s++ = utf_O4;
+                    *s++ = utf_A;
+                }
+                if (w>word && *(w-1)==utf_O && *w==utf_A5 ){
+                    adjust = 1;
+                    *s++ = '\b';
+                    *s++ = utf_O5;
+                    *s++ = utf_A;
+                }
+                // uý -> úy, uỳ -> ùy...
+                ////////////////////////////////
+                if (w>word && *(w-1)==utf_u && *w==utf_y1 ){
+                    adjust = 1;
+                    *s++ = '\b';
+                    *s++ = utf_u1;
+                    *s++ = utf_y;
+                }
+                if (w>word && *(w-1)==utf_u && *w==utf_y2 ){
+                    adjust = 1;
+                    *s++ = '\b';
+                    *s++ = utf_u2;
+                    *s++ = utf_y;
+                }
+                if (w>word && *(w-1)==utf_u && *w==utf_y3 ){
+                    adjust = 1;
+                    *s++ = '\b';
+                    *s++ = utf_u3;
+                    *s++ = utf_y;
+                }
+                if (w>word && *(w-1)==utf_u && *w==utf_y4 ){
+                    adjust = 1;
+                    *s++ = '\b';
+                    *s++ = utf_u4;
+                    *s++ = utf_y;
+                }
+                if (w>word && *(w-1)==utf_u && *w==utf_y5 ){
+                    adjust = 1;
+                    *s++ = '\b';
+                    *s++ = utf_u5;
+                    *s++ = utf_y;
+                }
+                // Capital
+                if (w>word && *(w-1)==utf_U && *w==utf_Y1 ){
+                    adjust = 1;
+                    *s++ = '\b';
+                    *s++ = utf_U1;
+                    *s++ = utf_Y;
+                }
+                if (w>word && *(w-1)==utf_U && *w==utf_Y2 ){
+                    adjust = 1;
+                    *s++ = '\b';
+                    *s++ = utf_U2;
+                    *s++ = utf_Y;
+                }
+                if (w>word && *(w-1)==utf_U && *w==utf_Y3 ){
+                    adjust = 1;
+                    *s++ = '\b';
+                    *s++ = utf_U3;
+                    *s++ = utf_Y;
+                }
+                if (w>word && *(w-1)==utf_U && *w==utf_Y4 ){
+                    adjust = 1;
+                    *s++ = '\b';
+                    *s++ = utf_U4;
+                    *s++ = utf_Y;
+                }
+                if (w>word && *(w-1)==utf_U && *w==utf_Y5 ){
+                    adjust = 1;
+                    *s++ = '\b';
+                    *s++ = utf_U5;
+                    *s++ = utf_Y;
                 }
                 break;
         }
