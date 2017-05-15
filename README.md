@@ -17,5 +17,6 @@ This fork has weird features and is under development:
 - [x] Thêm kiểu gõ VNID
 - [x] Bỏ dấu sau từ ('Xoá' và 'Xóa')
 - [x] Sửa lỗi không gõ được 'iê' và 'uê' Telex
+- [x] Sửa lỗi bỏ dấu hơạc -> hoặc
 
 TODO: https://github.com/heartbleeded/NAKL/issues
