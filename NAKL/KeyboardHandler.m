@@ -536,7 +536,7 @@ bool hasSpaceBar = false;
         backup[ p ] = c;
         }
         else {
-            if (key == utf_e || key == utf_E){
+            if (key == utf_e || key == utf_E){ //Only works with Telex
                 word[p+1]= utf_e6;
             }
         }
