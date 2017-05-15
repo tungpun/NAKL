@@ -475,7 +475,7 @@ bool hasSpaceBar = false;
            ) {
         i--;
     }
-    
+
     if( i == count-1 && i-1 >= 0 && (j = [self uiGroup:word[i-1]]) > 0 ) {
         switch( word[i] ) {
             case chr_a:
@@ -487,8 +487,8 @@ bool hasSpaceBar = false;
                                    (j > 24 && word[i-2] != chr_g && word[i-2] != chr_G)
                                    )
                                   )
-                     ) && [self isValidModifier:word[i-1]:key] )
-                    i = i - 1;
+                     ) && [self isValidModifier:word[i-1]:key] && (key!=utf_w && key !=utf_W && j>=12 ))
+            i = i - 1;
                 break;
             case chr_u:
             case chr_U:
