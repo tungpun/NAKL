@@ -487,25 +487,25 @@ bool hasSpaceBar = false;
                                    (j > 24 && word[i-2] != chr_g && word[i-2] != chr_G)
                                    )
                                   )
-                     ) && [self isValidModifier:word[i-1]:key] && 1)//(key!=utf_w && key !=utf_W  ))
+                     ) && [self isValidModifier:word[i-1]:key] && 1)
                 {
                     char *m = modifierKeys[self.kbMethod - 1];
-                    if ((char*) strchr(m, key)-m != 8 || j>=12)
+                    if ((char*) strchr(m, key)-m != 8 || j>=12) //Works with Telex+VNI
                         i -=1 ;
                 }
                 break;
             case chr_u:
             case chr_U:
                 if( i-2 < 0 ||  (word[i-2] != chr_g && word[i-2] != chr_G) )
-                    i = i - 1;
+                    i -=1 ;
                 break;
             case chr_e:
             case chr_E:
-                i = i - 1;
+                i -=1 ;
                 break;
             case chr_y:
             case chr_Y:
-                i = i - 1;
+                i -=1 ;
                 break;
             
         }
