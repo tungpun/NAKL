@@ -519,15 +519,23 @@ bool hasSpaceBar = false;
     
     for( i = 0; (cc = v[i].c) != 0 && c != cc; i++ );
     
-    if( !cc ) {
+    if( !cc && !((( c==utf_i || c==utf_I || c==utf_u || c==utf_U) && (word[p+1]==chr_e || word[p+1]==chr_E)) )
+       ) {
         [self append:c:key];
         return -1;
     }
     
     kbPLength = count - p;
-    if( !v[i].r2 ) {
+    if( !v[i].r2 )  {
+        if (!(( c==utf_i || c==utf_I || c==utf_u || c==utf_U ) && (word[p+1]==chr_e || word[p+1]==chr_E)) ) {
         word[ p ] = v[i].r1;
         backup[ p ] = c;
+        }
+        else {
+            if (key == utf_e){
+                word[p+1]= utf_e6;
+            }
+        }
     } else {
         word[ tempoff = count++ ] = (ushort)key;
         word[ p ] = backup[ p ];
