@@ -156,6 +156,14 @@ bool hasSpaceBar = false;
 {
     UniChar *s;
     char adjust = 0;
+    
+    if (count == 0) {
+        s = _kbBuffer+BACKSPACE_BUFFER;
+        *s = *w;
+        self.kbBLength = 1;
+        return;
+    }
+    
     for( s = _kbBuffer+BACKSPACE_BUFFER, pw = w; count>0; count--, w++ ) {
         switch (w-word){
             case 2:
@@ -186,7 +194,6 @@ bool hasSpaceBar = false;
         *s++ = *w;
     }
     *s = 0;
-    
     self.kbBLength = s - _kbBuffer - BACKSPACE_BUFFER - adjust;
 }
 
@@ -442,6 +449,8 @@ bool hasSpaceBar = false;
     }
     
     c = word[p = count - 1];
+
+    // NSLog(@"before: %hu %hu %hu", v->c, v->r1, v->r2);
     
     for (i=0; m[i].modifier; i++) {
         if (key == m[i].modifier) {
@@ -449,11 +458,13 @@ bool hasSpaceBar = false;
         }
     }
     
+    // NSLog(@"after: %hu %hu %hu", v->c, v->r1, v->r2);
+    
     if (!v) {
         [self append:c:key];
         return -1;
     }
-    
+
     i = p;
     
     /* Loop back to search for the closest character that can match with current key */
@@ -462,7 +473,8 @@ bool hasSpaceBar = false;
         i--;
     }
     
-    if( i < 0 ) {
+    // if( i < 0 ) {
+    if( i < -1000 ) {
         [self append:c:key];
         return -1;
     }
@@ -523,6 +535,18 @@ bool hasSpaceBar = false;
     
     for( i = 0; (cc = v[i].c) != 0 && c != cc; i++ );
     
+    for( i = 0; v[i].c != 0 && c != v[i].c; i++ ) {
+        cc = v[i].c;
+        if (v[i].c == 255) {
+            c = utf_w;
+            cc = utf_w;
+            p = count;
+            // count += 1;      // this one should be comment out properly
+            NSLog(@"%hu %hu", v[i].r1, v[i].r2);
+            break;
+        }
+    }
+    
     if( !cc && !((( c==utf_i || c==utf_I || c==utf_u || c==utf_U) && (word[p+1]==chr_e || word[p+1]==chr_E)) )
        ) {
         [self append:c:key];
@@ -530,6 +554,7 @@ bool hasSpaceBar = false;
     }
     
     kbPLength = count - p;
+    
     if( !v[i].r2 )  {
         if (!(( c==utf_i || c==utf_I || c==utf_u || c==utf_U ) && (word[p+1]==chr_e || word[p+1]==chr_E)) ) {
         word[ p ] = v[i].r1;
@@ -545,8 +570,10 @@ bool hasSpaceBar = false;
         word[ p ] = backup[ p ];
     }
     
+    // kbPLength = 0; //for debug purpose
+    
     [self mapToCharset:&word[p]:count-p];
-    return p;
+    return p; // p is edit position
 }
 
 - (void) dealloc {
